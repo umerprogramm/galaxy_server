@@ -5,7 +5,9 @@ const cors = require('cors');
 require("dotenv").config()
 const app = express();
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+    origin : '*'
+}));
 
 // MongoDB Atlas connection string
 const uri = process.env.PASS;
