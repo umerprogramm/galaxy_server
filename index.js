@@ -39,7 +39,12 @@ async function connectToDatabase() {
   
       res.send('your form has been submitted')
   }) 
-  
+  app.get('/getdata',async (req,res)=>{
+    const database = client.db('form');
+    let col  = await database.collection("forms")
+    let result = await col.find({}).toArray()
+    res.send(result)
+  })
 
 // // Middleware
 // app.use(bodyParser.json());
