@@ -26,14 +26,15 @@ async function connectToDatabase() {
 
 
   app.post('/register',async(req ,res)=>{
-    const { name, phone, city, address  } = req.body;
+    const { name, phone, city, address,title  } = req.body;
 
     const database = client.db('form');
    await database.collection('forms').insertOne({
     name,
     phone, 
     city, 
-    address 
+    address,
+    title
   
     });
   
